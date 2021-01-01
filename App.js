@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import {
+	Button,
+	Text,
+	View,
+	StatusBar,
+} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -62,7 +67,11 @@ const HomeStack = createStackNavigator();
 
 function HomeStackScreen() {
 	return (
-		<HomeStack.Navigator>
+		<HomeStack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+		>
 			<HomeStack.Screen
 				name='Home'
 				component={HomeScreen}
@@ -79,7 +88,11 @@ const SettingsStack = createStackNavigator();
 
 function SettingsStackScreen() {
 	return (
-		<SettingsStack.Navigator>
+		<SettingsStack.Navigator
+			screenOptions={{
+				headerShown: false,
+			}}
+		>
 			<SettingsStack.Screen
 				name='Settings'
 				component={SettingsScreen}
@@ -97,6 +110,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
 	return (
 		<NavigationContainer>
+			<StatusBar hidden />
 			<Tab.Navigator>
 				<Tab.Screen
 					name='Home'
