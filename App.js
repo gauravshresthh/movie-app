@@ -19,78 +19,10 @@ import {
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-function DetailsScreen() {
-	return (
-		<View
-			style={{
-				flex: 1,
-				justifyContent: 'center',
-				alignItems: 'center',
-			}}
-		>
-			<Text>Details!</Text>
-		</View>
-	);
-}
 
-function HomeScreen({ navigation }) {
-	return (
-		<View
-			style={{
-				flex: 1,
-				padding: 20,
-			}}
-		>
-			<Text
-				style={{
-					color: '#E50914',
-					margin: 5,
-					fontSize: 30,
-					marginBottom: 20,
-				}}
-			>
-				Movies
-			</Text>
-
-			<View style={{}}>
-				<Image
-					source={{
-						uri:
-							'https://img.yts.mx/assets/images/movies/summerland_2020/medium-cover.jpg',
-					}}
-					style={{
-						height: 250,
-						width: 150,
-						borderRadius: 10,
-					}}
-				/>
-				<Text style={{ color: 'white' }}>
-					Summerland
-				</Text>
-			</View>
-		</View>
-	);
-}
-
-function SettingsScreen({ navigation }) {
-	return (
-		<View
-			style={{
-				flex: 1,
-				justifyContent: 'center',
-				alignItems: 'center',
-			}}
-		>
-			<Text>Settings screen</Text>
-			<Button
-				title='Go to Details'
-				onPress={() =>
-					navigation.navigate('Details')
-				}
-			/>
-		</View>
-	);
-}
+import HomeScreen from './app/screens/HomeScreen';
+import SettingsScreen from './app/screens/SettingsScreen';
+import DetailsScreen from './app/screens/DetailsScreen';
 
 const HomeStack = createStackNavigator();
 
