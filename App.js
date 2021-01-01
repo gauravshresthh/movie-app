@@ -1,11 +1,21 @@
 import * as React from 'react';
 import {
-	Button,
 	Text,
 	View,
 	StatusBar,
+	Image,
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+
+import {
+	Card,
+	ListItem,
+	Button,
+	Icon,
+} from 'react-native-elements';
+import {
+	NavigationContainer,
+	DefaultTheme,
+} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -28,10 +38,37 @@ function HomeScreen({ navigation }) {
 		<View
 			style={{
 				flex: 1,
-				justifyContent: 'center',
-				alignItems: 'center',
+				padding: 20,
 			}}
-		></View>
+		>
+			<Text
+				style={{
+					color: '#E50914',
+					margin: 5,
+					fontSize: 30,
+					marginBottom: 20,
+				}}
+			>
+				Movies
+			</Text>
+
+			<View style={{}}>
+				<Image
+					source={{
+						uri:
+							'https://img.yts.mx/assets/images/movies/summerland_2020/medium-cover.jpg',
+					}}
+					style={{
+						height: 250,
+						width: 150,
+						borderRadius: 10,
+					}}
+				/>
+				<Text style={{ color: 'white' }}>
+					Summerland
+				</Text>
+			</View>
+		</View>
 	);
 }
 
@@ -100,8 +137,18 @@ function SettingsStackScreen() {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+	const MyTheme = {
+		...DefaultTheme,
+		colors: {
+			...DefaultTheme.colors,
+			primary: '#DCD9CD',
+			background: '#131313',
+			text: '#fff',
+			card: '#000',
+		},
+	};
 	return (
-		<NavigationContainer>
+		<NavigationContainer theme={MyTheme}>
 			<StatusBar hidden />
 			<Tab.Navigator
 				screenOptions={({ route }) => ({
@@ -135,7 +182,7 @@ export default function App() {
 					},
 				})}
 				tabBarOptions={{
-					activeTintColor: 'tomato',
+					activeTintColor: 'white',
 					inactiveTintColor: 'gray',
 				}}
 			>
