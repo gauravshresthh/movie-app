@@ -31,15 +31,7 @@ function HomeScreen({ navigation }) {
 				justifyContent: 'center',
 				alignItems: 'center',
 			}}
-		>
-			<Text>Home screen</Text>
-			<Button
-				title='Go to Details'
-				onPress={() =>
-					navigation.navigate('Details')
-				}
-			/>
-		</View>
+		></View>
 	);
 }
 
