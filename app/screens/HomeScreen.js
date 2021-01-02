@@ -37,7 +37,7 @@ export default function HomeScreen({
 			<Text
 				style={{
 					color: '#E50914',
-					marginTop: 20,
+					marginTop: 40,
 					fontSize: 30,
 					marginBottom: 20,
 					marginLeft: 20,
