@@ -1,18 +1,63 @@
-import * as React from 'react';
+import React, {
+	useState,
+	useEffect,
+} from 'react';
 import {
 	Text,
 	View,
 	StatusBar,
 	Image,
 	Button,
+	ActivityIndicator,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import StarRating from 'react-native-star-rating';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+import axios from 'axios';
+
 export default function DetailsScreen({ route }) {
-	const { itemId, item } = route.params;
+	const { itemId: movieId } = route.params;
+
+	const [movie, setMovie] = useState([]);
+	const [loading, setLoading] = useState(false);
+
+	const fetchMovie = async () => {
+		try {
+			setLoading(true);
+			const response = await axios.get(
+				`https://yts.mx/api/v2/movie_details.json?movie_id=${movieId}`
+			);
+			setMovie(response.data.data.movies);
+			setLoading(false);
+			console.log(response.data.data.movies);
+		} catch (error) {
+			setLoading(false);
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		fetchMovie();
+	}, []);
+
+	if (loading) {
+		return (
+			<View
+				style={{
+					flex: 1,
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
+			>
+				<ActivityIndicator
+					size='large'
+					color='#00ff00'
+				/>
+			</View>
+		);
+	}
 	return (
 		<View style={{ flex: 1 }}>
 			<LinearGradient
@@ -33,7 +78,8 @@ export default function DetailsScreen({ route }) {
 				style={{ height: '40%', width: '100%' }}
 				resizeMode='cover'
 				source={{
-					uri: `${item.medium_cover_image}`,
+					uri:
+						'https://img.yts.mx/assets/images/movies/nurse_3d_2013/medium-cover.jpg',
 				}}
 			/>
 
@@ -47,7 +93,7 @@ export default function DetailsScreen({ route }) {
 					fontSize: 30,
 				}}
 			>
-				{item.title}
+				{movie.title}
 			</Text>
 
 			<View
@@ -58,8 +104,8 @@ export default function DetailsScreen({ route }) {
 				}}
 			>
 				<Text style={{ color: 'gray' }}>
-					`${item.year} ${item.genres} $
-					{item.language}`
+					`${movie.year} ${movie.genres} $
+					{movie.language}`
 				</Text>
 			</View>
 
