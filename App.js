@@ -24,6 +24,7 @@ import HomeScreen from './app/screens/HomeScreen';
 import SettingsScreen from './app/screens/SettingsScreen';
 import DetailsScreen from './app/screens/DetailsScreen';
 import ProfileScreen from './app/screens/ProfileScreen';
+import CastsScreen from './app/screens/CastsScreen';
 
 const HomeStack = createStackNavigator();
 
@@ -41,6 +42,10 @@ function HomeStackScreen() {
 			<HomeStack.Screen
 				name='Details'
 				component={DetailsScreen}
+			/>
+			<HomeStack.Screen
+				name='Casts'
+				component={CastsScreen}
 			/>
 		</HomeStack.Navigator>
 	);

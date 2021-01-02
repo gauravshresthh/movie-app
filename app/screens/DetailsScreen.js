@@ -14,7 +14,10 @@ import StarRating from 'react-native-star-rating';
 
 import axios from 'axios';
 
-export default function DetailsScreen({ route }) {
+export default function DetailsScreen({
+	route,
+	navigation,
+}) {
 	const { movie_id } = route.params;
 
 	const [movie, setMovie] = useState('');
@@ -57,7 +60,7 @@ export default function DetailsScreen({ route }) {
 		<View style={{ flex: 1 }}>
 			<Image
 				style={{ height: '40%', width: '100%' }}
-				resizeMode='cover'
+				resizeMode='contain'
 				source={{
 					uri: `${movie.medium_cover_image}`,
 				}}
@@ -130,6 +133,17 @@ export default function DetailsScreen({ route }) {
 					);
 				}}
 			></Button>
+			<View style={{ marginTop: 10 }}>
+				<Button
+					title='Details about the cast and crew'
+					color='#b31240'
+					onPress={() => {
+						navigation.navigate('Casts', {
+							movie_id: movie_id,
+						});
+					}}
+				></Button>
+			</View>
 		</View>
 	);
 }
