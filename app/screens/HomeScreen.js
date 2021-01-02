@@ -24,6 +24,7 @@ export default function HomeScreen({
 				'https://yts.mx/api/v2/list_movies.json'
 			);
 			setMovies(response.data.data.movies);
+			console.log(movies[0]);
 		} catch (error) {
 			console.log(error);
 		}
@@ -48,7 +49,10 @@ export default function HomeScreen({
 			<FlatList
 				data={movies}
 				horizontal
-				renderItem={() => (
+				keyExtractor={(item) =>
+					item.id.toString()
+				}
+				renderItem={(movie) => (
 					<View
 						style={{
 							flex: 1,
@@ -59,8 +63,7 @@ export default function HomeScreen({
 							<TouchableOpacity>
 								<Image
 									source={{
-										uri:
-											'https://img.yts.mx/assets/images/movies/summerland_2020/medium-cover.jpg',
+										uri: `${movie.medium_cover_image}`,
 									}}
 									style={{
 										height: 250,
@@ -76,7 +79,7 @@ export default function HomeScreen({
 										fontSize: 18,
 									}}
 								>
-									Summerland
+									{movie.title}
 								</Text>
 							</TouchableOpacity>
 						</View>
