@@ -8,6 +8,7 @@ import {
 	Image,
 	Button,
 	ActivityIndicator,
+	SafeAreaView,
 } from 'react-native';
 
 import StarRating from 'react-native-star-rating';
@@ -42,7 +43,7 @@ export default function DetailsScreen({
 
 	if (loading) {
 		return (
-			<View
+			<SafeAreaView
 				style={{
 					flex: 1,
 					justifyContent: 'center',
@@ -53,11 +54,11 @@ export default function DetailsScreen({
 					size='large'
 					color='red'
 				/>
-			</View>
+			</SafeAreaView>
 		);
 	}
 	return (
-		<View style={{ flex: 1 }}>
+		<SafeAreaView style={{ flex: 1 }}>
 			<Image
 				style={{ height: '40%', width: '100%' }}
 				resizeMode='contain'
@@ -121,7 +122,7 @@ export default function DetailsScreen({
 					marginBottom: 40,
 				}}
 			>
-				{movie.description_full}
+				{movie.description_intro}
 			</Text>
 
 			<Button
@@ -144,6 +145,6 @@ export default function DetailsScreen({
 					}}
 				></Button>
 			</View>
-		</View>
+		</SafeAreaView>
 	);
 }

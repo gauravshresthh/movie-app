@@ -26,8 +26,6 @@ function CastsScreen({ route, navigation }) {
 			);
 			setCasts(data.data.movie.cast);
 			setLoading(false);
-			console.log(data.data.movie.cast);
-			console.log(casts);
 		} catch (error) {
 			console.log(error);
 		}
