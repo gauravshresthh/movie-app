@@ -61,7 +61,10 @@ export default function HomeScreen({
 						<View style={{ width: 150 }}>
 							<TouchableOpacity
 								onPress={() =>
-									navigation.navigate('Details')
+									navigation.navigate('Details', {
+										itemId: item.id,
+										item: { item },
+									})
 								}
 							>
 								<Image
