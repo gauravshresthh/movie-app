@@ -48,7 +48,7 @@ export default function DetailsScreen({ route }) {
 			>
 				<ActivityIndicator
 					size='large'
-					color='#00ff00'
+					color='red'
 				/>
 			</View>
 		);
@@ -65,7 +65,7 @@ export default function DetailsScreen({ route }) {
 
 			<Text
 				style={{
-					color: 'red',
+					color: 'white',
 
 					fontWeight: 'bold',
 					textAlign: 'center',
@@ -78,14 +78,20 @@ export default function DetailsScreen({ route }) {
 
 			<View
 				style={{
-					flexDirection: 'row',
+					flexDirection: 'column',
 					justifyContent: 'center',
 					alignItems: 'center',
+					marginBottom: 20,
 				}}
 			>
 				<Text style={{ color: 'gray' }}>
-					{movie.year} {movie.genres}
-					{movie.language}
+					Year : {movie.year}
+				</Text>
+				<Text style={{ color: 'gray' }}>
+					Genre : {movie.genres}
+				</Text>
+				<Text style={{ color: 'gray' }}>
+					Language : {movie.language}
 				</Text>
 			</View>
 
@@ -98,8 +104,8 @@ export default function DetailsScreen({ route }) {
 			>
 				<StarRating
 					disabled
-					maxStars={5}
-					rating={5}
+					maxStars={10}
+					rating={movie.rating}
 					emptyStarColor='white'
 					fullStarColor='yellow'
 					starSize={20}
