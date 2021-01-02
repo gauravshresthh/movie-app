@@ -20,7 +20,8 @@ export default function SettingsScreen({
 		>
 			<Text>Settings screen</Text>
 			<Button
-				title='Go to Details'
+				title='Go to Profile'
+				color='red'
 				onPress={() =>
 					navigation.navigate('Profile')
 				}

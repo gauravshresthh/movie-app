@@ -20,10 +20,10 @@ export default function HomeScreen({
 
 	const fetchMovies = async () => {
 		try {
-			const response = await axios.get(
+			const { data } = await axios.get(
 				'https://yts.mx/api/v2/list_movies.json'
 			);
-			setMovies(response.data.data.movies);
+			setMovies(data.data.movies);
 		} catch (error) {
 			console.log(error);
 		}
@@ -32,7 +32,6 @@ export default function HomeScreen({
 		fetchMovies();
 	}, []);
 
-	
 	return (
 		<>
 			<Text
@@ -64,7 +63,7 @@ export default function HomeScreen({
 							<TouchableOpacity
 								onPress={() =>
 									navigation.navigate('Details', {
-										movieId: item.id,
+										movie_id: item.id,
 									})
 								}
 							>

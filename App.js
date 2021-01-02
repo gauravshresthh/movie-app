@@ -23,6 +23,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './app/screens/HomeScreen';
 import SettingsScreen from './app/screens/SettingsScreen';
 import DetailsScreen from './app/screens/DetailsScreen';
+import ProfileScreen from './app/screens/ProfileScreen';
 
 const HomeStack = createStackNavigator();
 

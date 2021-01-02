@@ -7,7 +7,9 @@ import {
 
 const ProfileScreen = (props) => (
 	<View style={styles.container}>
-		<Text>ProfileScreen</Text>
+		<Text style={{ color: 'white' }}>
+			Welcome to the Profile Screen
+		</Text>
 	</View>
 );
 export default ProfileScreen;
