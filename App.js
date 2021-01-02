@@ -71,11 +71,12 @@ const Tab = createBottomTabNavigator();
 export default function App() {
 	const MyTheme = {
 		...DefaultTheme,
+		dark: true,
 		colors: {
 			...DefaultTheme.colors,
-			primary: '#DCD9CD',
+			primary: '#ffffff',
 			background: '#131313',
-			text: '#fff',
+			text: '#ffffff',
 			card: '#000',
 		},
 	};

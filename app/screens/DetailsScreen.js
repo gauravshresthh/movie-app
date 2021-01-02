@@ -7,10 +7,25 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import StarRating from 'react-native-star-rating';
 
 export default function DetailsScreen() {
 	return (
 		<View style={{ flex: 1 }}>
+			<LinearGradient
+				// Background Linear Gradient
+				colors={[
+					'transparent',
+					'rgba(0,0,0,0.8)',
+				]}
+				style={{
+					position: 'absolute',
+					left: 0,
+					right: 0,
+					top: 0,
+					height: 300,
+				}}
+			/>
 			<Image
 				style={{ height: '40%', width: '100%' }}
 				resizeMode='cover'
@@ -19,33 +34,38 @@ export default function DetailsScreen() {
 						'https://img.yts.mx/assets/images/movies/the_fat_and_the_lean_1961/large-cover.jpg',
 				}}
 			/>
-			<View
-				style={{
-					flex: 1,
-					position: 'absolute',
-					backgroundColor: 'black',
-					width: '100%',
-					height: '30%',
-					opacity: 0.7,
-				}}
-			></View>
+
 			<Text
 				style={{
 					color: 'red',
-					bottom: 30,
+
 					fontWeight: 'bold',
 					textAlign: 'center',
-					shadowColor: '#000',
+
 					fontSize: 30,
-
-					shadowOpacity: 0.58,
-					shadowRadius: 16.0,
-
-					elevation: 24,
 				}}
 			>
 				Wonder Woman
 			</Text>
+
+			<View
+				style={{
+					flexDirection: 'row',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
+			>
+				<Text style={{ color: 'gray' }}>
+					2020 Adventure,Action Language : EN
+				</Text>
+			</View>
+
+			<StarRating
+				disabled
+				maxStars={10}
+				rating={item.rating}
+			/>
+			<Text>{item.summary}</Text>
 		</View>
 	);
 }
