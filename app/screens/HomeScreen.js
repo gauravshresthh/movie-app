@@ -21,13 +21,15 @@ export default function HomeScreen({
 	const fetchMovies = async () => {
 		try {
 			const { data } = await axios.get(
-				'https://yts.mx/api/v2/list_movies.json'
+				'https://yts.mx/api/v2/list_movies.json?movie_count=100'
 			);
 			setMovies(data.data.movies);
 		} catch (error) {
 			console.log(error);
 		}
 	};
+
+	
 	useEffect(() => {
 		fetchMovies();
 	}, []);

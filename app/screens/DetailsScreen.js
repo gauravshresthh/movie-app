@@ -5,17 +5,14 @@ import React, {
 import {
 	Text,
 	View,
-	StatusBar,
 	Image,
 	Button,
 	ActivityIndicator,
 } from 'react-native';
 
 import StarRating from 'react-native-star-rating';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import axios from 'axios';
-import { set } from 'react-native-reanimated';
 
 export default function DetailsScreen({ route }) {
 	const { movie_id } = route.params;
@@ -29,7 +26,6 @@ export default function DetailsScreen({ route }) {
 			const { data } = await axios.get(
 				`https://yts.mx/api/v2/movie_details.json?movie_id=${movie_id}`
 			);
-			console.log(data.status);
 			setMovie(data.data.movie);
 			setLoading(false);
 		} catch (error) {
@@ -124,7 +120,7 @@ export default function DetailsScreen({ route }) {
 				color='red'
 				onPress={() => {
 					alert(
-						'this feature will be added soon'
+						'This feature will be added soon'
 					);
 				}}
 			></Button>
