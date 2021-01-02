@@ -22,7 +22,7 @@ export default function SettingsScreen({
 			<Button
 				title='Go to Details'
 				onPress={() =>
-					navigation.navigate('Details')
+					navigation.navigate('Profile')
 				}
 			/>
 		</View>

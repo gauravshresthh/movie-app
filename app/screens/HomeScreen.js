@@ -31,6 +31,8 @@ export default function HomeScreen({
 	useEffect(() => {
 		fetchMovies();
 	}, []);
+
+	
 	return (
 		<>
 			<Text
@@ -62,7 +64,7 @@ export default function HomeScreen({
 							<TouchableOpacity
 								onPress={() =>
 									navigation.navigate('Details', {
-										itemId: item.id,
+										movieId: item.id,
 									})
 								}
 							>

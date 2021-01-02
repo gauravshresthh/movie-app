@@ -59,8 +59,8 @@ function SettingsStackScreen() {
 				component={SettingsScreen}
 			/>
 			<SettingsStack.Screen
-				name='Details'
-				component={DetailsScreen}
+				name='Profile'
+				component={ProfileScreen}
 			/>
 		</SettingsStack.Navigator>
 	);
