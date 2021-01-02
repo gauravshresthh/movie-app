@@ -49,21 +49,25 @@ export default function HomeScreen({
 			<FlatList
 				data={movies}
 				horizontal
-				keyExtractor={(item) =>
-					item.id.toString()
+				keyExtractor={(movie) =>
+					movie.id.toString()
 				}
-				renderItem={(movie) => (
+				renderItem={({ item }) => (
 					<View
 						style={{
 							flex: 1,
 							padding: 20,
 						}}
 					>
-						<View>
-							<TouchableOpacity>
+						<View style={{ width: 150 }}>
+							<TouchableOpacity
+								onPress={() =>
+									navigation.navigate('Details')
+								}
+							>
 								<Image
 									source={{
-										uri: `${movie.medium_cover_image}`,
+										uri: `${item.medium_cover_image}`,
 									}}
 									style={{
 										height: 250,
@@ -75,11 +79,10 @@ export default function HomeScreen({
 								<Text
 									style={{
 										color: 'white',
-										fontWeight: 'bold',
 										fontSize: 18,
 									}}
 								>
-									{movie.title}
+									{item.title}
 								</Text>
 							</TouchableOpacity>
 						</View>
