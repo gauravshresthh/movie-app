@@ -24,7 +24,6 @@ export default function HomeScreen({
 				'https://yts.mx/api/v2/list_movies.json'
 			);
 			setMovies(response.data.data.movies);
-			console.log(movies[0]);
 		} catch (error) {
 			console.log(error);
 		}
