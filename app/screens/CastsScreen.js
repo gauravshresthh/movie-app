@@ -56,7 +56,9 @@ function CastsScreen({ route, navigation }) {
 		<FlatList
 			data={casts}
 			keyExtractor={(cast) => {
-				cast.imdb_code;
+				{
+					cast.imdb_code.toString();
+				}
 			}}
 			renderItem={({ item }) => (
 				<View

@@ -58,7 +58,7 @@ export default function DetailsScreen({
 		);
 	}
 	return (
-		<SafeAreaView style={{ flex: 1 }}>
+		<SafeAreaView>
 			<Image
 				style={{ height: '40%', width: '100%' }}
 				resizeMode='contain'
